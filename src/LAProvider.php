@@ -177,7 +177,15 @@ class LAProvider extends ServiceProvider
 
         // LAForm Maker - Display Values
         Blade::directive('la_test', function ($expression) {
-            return "<?php echo 1 ?>";
+            return "<?php echo 1; ?>";
+        });
+
+        // LAForm Maker - Display Values
+        Blade::directive('la_test_2', function ($expression) {
+          if(LAHelper::laravel_ver() == 5.3) {
+              $expression = "1";
+          }
+          return "<?php echo $expression; ?>";
         });
 
         // LAForm Maker - Display Values
